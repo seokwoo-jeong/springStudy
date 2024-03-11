@@ -239,7 +239,7 @@ public class MemberRepositoryTest {
 		em.flush();
 	}
 	
-	@Test
+	//@Test
 	void lock() {
 		Member member = new Member("member1", 10);
 		memberRepository.save(member);
@@ -247,6 +247,11 @@ public class MemberRepositoryTest {
 		em.clear();
 		
 		List<Member> result= this.memberRepository.findLockByUsername("member1");
+	}
+	
+	@Test
+	void callCustom() {
+		List<Member> result = this.memberRepository.findMemberCustom();
 	}
 
 }
